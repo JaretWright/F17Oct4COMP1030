@@ -1,5 +1,7 @@
 package f17oct4comp1030;
 
+import java.security.SecureRandom;
+
 /**
  *
  * @author JWright
@@ -31,4 +33,22 @@ public class Dice {
         else
             throw new IllegalArgumentException("Number of sides must be 4-100 inclusive");
     }
+    
+    
+    /**
+     * This method will simulate rolling the die
+     */
+    public void rollDie()
+    {
+        //the secure random class can create pseudo random numbers
+        SecureRandom rng = new SecureRandom();
+        faceValue = rng.nextInt(numberOfSides)+1;
+    }
+    
+    public int getFaceValue()
+    {
+        return faceValue;  //this is a publically accessible method that returns the
+                           //private instance variable "faceValue"
+    }
 }
+
