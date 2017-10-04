@@ -23,5 +23,30 @@ public class ForLoopExample {
         } while (!(die1.getFaceValue() == 1 && die2.getFaceValue() == 1));
         
         System.out.printf("It took %d attempts to roll snake eyes%n", counter);
+        
+        forExampleWithSnakeEyes();
+    }
+    
+    //we will see how many times snake eyes comes up in 100,000 rolls
+    public static void forExampleWithSnakeEyes()
+    {
+        Dice die1 = new Dice(6);
+        Dice die2 = new Dice(6);
+        
+        int snakeEyesCounter = 0;
+        
+        for (int i=1; i<=100000; i++)
+        {
+            die1.rollDie();
+            die2.rollDie();
+            
+            //test for snake eyes
+            if (die1.getFaceValue() == 1 && die2.getFaceValue() == 1)
+                snakeEyesCounter++;
+        }
+        
+        System.out.printf("With 100,000 rolls, snake eyes came up %d times%n", snakeEyesCounter);
+        System.out.printf("That is %.1f%%", (double) snakeEyesCounter/100000*100);
+        
     }
 }
