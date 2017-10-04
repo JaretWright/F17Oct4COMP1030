@@ -9,8 +9,19 @@ public class ForLoopExample {
     {
         Dice die1 = new Dice(6);
         Dice die2 = new Dice(6);
+     
+        int counter = 0;
         
-        System.out.printf("The value of die1 is %d and the value of die 2 is %d%n",
-                            die1.getFaceValue(), die2.getFaceValue());
+        do
+        {
+            die1.rollDie();
+            die2.rollDie();
+            System.out.printf("The value of die1 is %d and the value of die 2 is %d%n",
+                            die1.getFaceValue(), die2.getFaceValue());  
+                            
+            counter++;
+        } while (!(die1.getFaceValue() == 1 && die2.getFaceValue() == 1));
+        
+        System.out.printf("It took %d attempts to roll snake eyes%n", counter);
     }
 }
